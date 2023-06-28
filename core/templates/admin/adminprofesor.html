@@ -16,31 +16,51 @@
 <body>
 <header>
     <div class="head">
-
         <div class="logo">
-
             <img id="img" src="{% static '../static/img/logo.png' %}">
-
         </div>
-
         <nav class="navbar">
             <a href="{% url 'menu' %}">Inicio</a>
             <a href="#">Nosotros</a>
             <a href="{% url 'login' %}">Contacto</a>
         </nav>
-
     </div>
 </header>
 
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 
 <section>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="menualumno">
+        <div class="row">
+            <form action="" method="POST" id="formulario" enctype= "multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{form.as_p}}
+                </div>
+                <br>
+                <br>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                <div class="alert alert-succes" role="alert">
+                    {{mensaje}}
+                </div>
+            </form>
+             </div>
+    </div>    
 </section>
-    
-    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
     <footer >
         <div class="footer-container">
             <div class="footer-content-container">

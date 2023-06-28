@@ -73,7 +73,7 @@ class Asistencia(models.Model):
 
 class Nota(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE, related_name='notas',default=None)
-    asignatura = models.CharField(max_length=100, default='Asignatura desconocida')
+    asignatura = models.CharField(max_length=100, default='')
     valor = models.DecimalField(max_digits=5, decimal_places=2,null=True)
     fecha = models.DateField(default=timezone.now)
     tipo_evaluacion = models.CharField(max_length=100,null=True)
@@ -101,7 +101,6 @@ class Profesor(models.Model):
     especialidad = models.CharField(max_length=100,null=True)
     correo = models.EmailField(default='example@example.com')
     id_profesor = models.AutoField(primary_key=True, default=None)
-
 
     def __str__(self):
         return self.nombre

@@ -484,7 +484,7 @@ label {
 
 
 .menualumno {
-    background-color: #4CAF50;
+    background-color: #080840;
     max-width: 500px;
     width: 50%;
     margin: auto;
@@ -527,7 +527,7 @@ label {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color: #2a9d8f;
+    background-color: #2a8c9d;
     border: none;
     border-radius: 5px;
 }
@@ -540,7 +540,7 @@ label {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #175f21;
     border: none;
     border-radius: 5px;
     cursor: pointer;

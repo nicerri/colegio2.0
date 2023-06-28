@@ -4,8 +4,7 @@ from .models import Profesor,Estudiante
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
-from core.forms import EstudianteForm
-
+from core.forms import EstudianteForm, NotaForm, AnotacionForm, ProfesorForm
 #@login_required
 
 def asistencia(request):
@@ -61,10 +60,36 @@ def cursos(request):
     return render(request,'cursos.html')
 
 def notas(request):
-    return render(request,'notas.html')
+    datos = {
+        'form': NotaForm()
+    }
+
+    if request.method == 'POST':
+        formulario =  NotaForm(request.POST or None, request.FILES or None)
+
+        if formulario.is_valid():
+            formulario.save() #insert a la BD
+            datos['mensaje'] = 'Se guardó la nota'
+        else:
+            datos['mensaje'] = 'NO se guardó la nota'
+
+    return render(request,'notas.html' ,datos)
 
 def anotaciones(request):
-    return render(request,'anotaciones.html')
+    datos = {
+        'form': AnotacionForm()
+    }
+
+    if request.method == 'POST':
+        formulario =  NotaForm(request.POST or None, request.FILES or None)
+
+        if formulario.is_valid():
+            formulario.save() #insert a la BD
+            datos['mensaje'] = 'Se guardó la anotacion'
+        else:
+            datos['mensaje'] = 'NO se guardó la anotacion'
+    
+    return render(request,'anotaciones.html', datos)
 
 def donacion(request):
     return render(request,'Donacion.html')
@@ -82,7 +107,7 @@ def adminalumno(request):
             datos['mensaje'] = 'Se guardó el alumno'
         else:
             datos['mensaje'] = 'NO se guardó el alumno'
- 
+
     return render(request,'admin/adminalumno.html',datos)
 
 def adminasistencia(request):
@@ -92,4 +117,17 @@ def admincreacion(request):
     return render(request,'admin/admincreacion.html')
 
 def adminprofesor(request):
-    return render(request,'admin/adminprofesor.html')
+    datos = {
+        'form': ProfesorForm()
+    }
+
+    if request.method == 'POST':
+        formulario =  ProfesorForm(request.POST or None, request.FILES or None)
+
+        if formulario.is_valid():
+            formulario.save() #insert a la BD
+            datos['mensaje'] = 'Se guardó el profesor'
+        else:
+            datos['mensaje'] = 'NO se guardó el profesor'
+    
+    return render(request,'admin/adminprofesor.html' ,datos)
