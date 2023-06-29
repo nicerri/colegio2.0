@@ -61,14 +61,14 @@ def cursos(request):
 
 def notas(request):
     datos = {
-        'form': NotaForm()
+        'form1': NotaForm()
     }
 
     if request.method == 'POST':
-        formulario =  NotaForm(request.POST or None, request.FILES or None)
+        formulario1 =  NotaForm(request.POST or None, request.FILES or None)
 
-        if formulario.is_valid():
-            formulario.save() #insert a la BD
+        if formulario1.is_valid():
+            formulario1.save() #insert a la BD
             datos['mensaje'] = 'Se guardó la nota'
         else:
             datos['mensaje'] = 'NO se guardó la nota'
@@ -77,14 +77,14 @@ def notas(request):
 
 def anotaciones(request):
     datos = {
-        'form': AnotacionForm()
+        'form2': AnotacionForm()
     }
 
     if request.method == 'POST':
-        formulario =  NotaForm(request.POST or None, request.FILES or None)
+        formulario2 =  NotaForm(request.POST or None, request.FILES or None)
 
-        if formulario.is_valid():
-            formulario.save() #insert a la BD
+        if formulario2.is_valid():
+            formulario2.save() #insert a la BD
             datos['mensaje'] = 'Se guardó la anotacion'
         else:
             datos['mensaje'] = 'NO se guardó la anotacion'
